@@ -1,0 +1,6 @@
+[submodule "aituber-kit"]
+	path = aituber-kit
+	url = git@github.com:tegnike/aituber-kit.git
+[submodule "aituber-server"]
+	path = aituber-server
+	url = git@github.com:tegnike/aituber-server.git
