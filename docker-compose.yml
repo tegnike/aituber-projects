@@ -1,22 +1,24 @@
-   version: '3.7'
-   services:
-     aituber-kit:
-       build:
-         context: ./aituber-kit
-       ports:
-         - "3000:3000"
-       volumes:
-         - ./aituber-kit:/app
+  version: '3.7'
+  services:
+    aituber-kit:
+      build:
+        context: ./aituber-kit
+      ports:
+        - "3000:3000"
+      volumes:
+        - ./aituber-kit:/work
+      env_file:
+        - ./.env
 
-     aituber-server:
-       build:
-         context: ./aituber-server
-       command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-       ports:
-         - "8000:8000"
-         - "5678:5678"
-       volumes:
-         - ./aituber-server:/app
-       env_file:
-         - ./aituber-server/.env
+    aituber-server:
+      build:
+        context: ./aituber-server
+      command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+      ports:
+        - "8000:8000"
+        - "5678:5678"
+      volumes:
+        - ./aituber-server:/app
+      env_file:
+        - ./.env
 
